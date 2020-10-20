@@ -1,0 +1,52 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-qrscanner": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "com.khaoaurbachao.kbrestaurant"
+    }
+  }
+}

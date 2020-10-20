@@ -1,0 +1,127 @@
+.loader-gif-row{
+    position: absolute;
+    margin-top: 80%;
+    z-index: 9;
+    text-align: center;
+  }
+  .loader-gif{
+    width: 60%;
+  }
+  .bgh{
+    background: #b40404 !important;
+    color: #fff;
+    padding: 0.3em 0.7em;
+  }
+  .mt{
+      margin-top: 10px;
+  }
+  .mt2{
+    padding-left: 1em;
+    margin-top: 1px;
+  }
+  ion-card {
+    position: relative;
+    text-align: center;
+    box-shadow: none;
+    border: 1px solid #b40404;
+    border-radius: 10px;
+  }
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+  
+  .white{
+    color:#fff;
+    margin-bottom: 0;
+    margin-top:3px;
+    width: 83%;
+  }
+  .stars{
+  color: rgba(255, 255, 255, 0.48);
+  }
+  .red{
+  color:#b40404;
+  }
+  .heart{
+   font-size: 24px;
+  }
+  ion-card-header{
+    padding:15px 34px 10px 34px;
+  }
+  ion-card-header img{
+    width: 100px;
+    height: 100px;
+  }
+  ion-card-content{
+    text-align: center;
+    color: #000000;
+    padding-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px; 
+  }
+  ion-card-content img{
+    width: 15px;
+    height: 15px;
+    margin-top: 1px;
+    margin-right: 4px;
+  }
+  ion-card-subtitle{
+    color: #b40404;
+    letter-spacing: 1px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .card-content-md p{
+    display: flex;
+    font-size: 12px;
+  }
+  ion-icon{
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+  }
+  ion-menu-button{
+    width: 75px;
+    margin-left: 2px;
+  }
+  .spanTitle{
+    float: right;
+    margin-right: 1em;
+    color: #fff;
+    font-size: 16px;
+    width: 95px;
+    text-align: right;
+    line-height: 20px;
+  }
+  ion-card-content ion-col{
+     padding: 0px;
+  }
+ 
+  .addImage{
+    border: 1px solid #b40404;
+    border-radius: 16px;
+    height: 90.99%;
+ }
+ .addImage ion-icon{
+    font-size: 40px;
+    color: #b40404;
+    vertical-align: middle;
+    padding:1.9em 0em;
+    margin: 0px;
+}
+ion-toolbar.ios{
+  padding: 1.5em 0em;
+}

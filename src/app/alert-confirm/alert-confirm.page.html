@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-row class="fa_cros">
+    <ion-col  (click)="DismissClick()">
+      <ion-icon ios="ios-close" md="md-close" class="primary_color float-right icon_close"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-card >
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <p><ion-icon ios="ios-trash" md="md-trash" class="basket" ></ion-icon>
+            <span class="me_top">Are you sure you want to <strong>Delete</strong></span>?</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="text-center">
+          <ion-button class="button-login" color="danger" shape="round" (click)="submit()">Yes</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

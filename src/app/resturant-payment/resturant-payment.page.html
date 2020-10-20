@@ -1,0 +1,58 @@
+
+<ion-content  no-border fullscreen="true"  class="ion-padding background no-scroll">
+ 
+  <form [formGroup]="paymentForm">
+  <ion-list class="items-middle" class="ion-text-center">
+   <ion-row>
+      <ion-col style="padding-left: 0px;" class="ion-text-left" size="col-4">
+          <img src="assets/imgs/khaobchao.png" width="45%">
+      </ion-col>
+    </ion-row>
+   
+     <h3 class="main_heading ion-text-left">Resturant Setup</h3>
+    <p class="font-color ion-text-left">
+      Please Enter Your Resturant Details.
+    </p>
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Recommended</ion-label>
+      <ion-textarea  rows="3"  [(ngModel)]="recommended"  formControlName="recommended" ></ion-textarea>
+    </ion-item>
+    <div class="errorMessage" *ngIf="paymentForm.get('recommended').hasError('required') && paymentForm.get('recommended').touched">
+      * Please Enter Recommended
+    </div>
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Terms and Conditions</ion-label>
+      <ion-textarea  rows="3"  [(ngModel)]="terms"  formControlName="terms" ></ion-textarea>
+    </ion-item>
+    <div class="errorMessage" *ngIf="paymentForm.get('terms').hasError('required') && paymentForm.get('terms').touched">
+      * Please Enter Terms and Conditions
+    </div>
+    <ion-row>
+        <ion-col size="10">
+          <ion-item class="itemInput">
+            <ion-label color="ligh-grey"  position="floating">Payment Method</ion-label>
+            <ion-input
+            [(ngModel)]="pMethod"  formControlName="pMethod" 
+            clearInput ></ion-input>
+          </ion-item>
+          <div class="errorMessage" *ngIf="paymentForm.get('pMethod').hasError('required') && paymentForm.get('pMethod').touched">
+            * Please Enter payment method
+          </div>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon ios="ios-add" md="md-add" style=" font-size: 30px;color: #b40404;"></ion-icon>
+        </ion-col>
+    </ion-row>
+   
+    <ion-row>
+      <ion-col text-left>
+        <ion-button class="button-login" color="danger" shape="round">
+          Cash <ion-icon ios="ios-remove" md="md-remove" style="margin-top: 0px;color:#fff;"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-button class="button-login" color="danger" shape="round" (click)="openImagePage()" style="margin-top: 2em;">Continue</ion-button>
+  </ion-list>
+</form>
+</ion-content> 

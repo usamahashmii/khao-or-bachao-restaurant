@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar (click)="toggleMenu()">
+          <ion-title><img src="assets/imgs/menu.png" style="margin: 1em 0px 1em 0em;width: 38%;"/></ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <!--Page with No auth-->
+        <ion-list *ngIf="checkauthenticationState == false" lines="none">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPagesNoAuth">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <!--<ion-icon slot="start" [name]="p.icon"></ion-icon>-->
+              <img src="assets/imgs/{{p.img}}" style="width: 16px;margin-right: 1em;">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <!--Page with auth-->
+        <ion-list *ngIf="checkauthenticationState == true" lines="none">  
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPagesAuth">
+            <ng-container *ngIf="p.title !='Logout'">
+              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                 <!--<ion-icon slot="start" [name]=""></ion-icon>-->
+                 <img src="assets/imgs/{{p.img}}" style="width: 16px;margin-right: 1em;">
+                 <ion-label>
+                   {{p.title}}
+                 </ion-label>
+               </ion-item>
+             </ng-container>
+            <ng-container *ngIf="p.title =='Logout'">
+            <ion-item [routerDirection]="'root'" (click)="logout()">
+              <!--<ion-icon slot="start" [name]=""></ion-icon>-->
+              <img src="assets/imgs/{{p.img}}" style="width: 16px;margin-right: 1em;">
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ng-container>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+    
+  </ion-split-pane>
+  
+</ion-app>

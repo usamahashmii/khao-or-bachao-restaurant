@@ -1,0 +1,71 @@
+<ion-header class="header_background">
+  <!--ion-toolbar class="header_background">
+    <ion-buttons slot="start">
+      <ion-menu-button><img src="assets/imgs/dot-menu.png" class="dot_icon"> <img  src="assets/imgs/headerLogo.png" class="logo_icon"></ion-menu-button>
+    </ion-buttons>
+    <span>
+      {{restaurantName}}
+    </span>
+    <span class="spanTitle" (click)="showtimePeriod()">
+     Last {{periodReservation}}
+    </span>
+  </ion-toolbar-->
+ <ion-row class="bgh">
+   <ion-col size="4"  class="ion-text-left">
+    <span (click)="toggleMenu()">
+      <img src="assets/imgs/dots.svg" width="68px" > 
+    </span> 
+   </ion-col>
+   <ion-col size="4" class="ion-text-center mt">
+    {{restaurantName}}
+   </ion-col>
+   <ion-col size="4"  class="ion-text-right mt" (click)="showtimePeriod()" *ngIf="showSort ==false">
+    Last {{periodReservation}}
+   </ion-col>
+   <ion-col size="4"  class="ion-text-right mt" (click)="showtimePeriod()" *ngIf="showSort">
+    Sort
+   </ion-col>
+ </ion-row>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+     </ion-col>
+  </ion-row>
+ 
+  <!-- Custom Refresher Content -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-row *ngIf="reservation_data?.length == 0">
+    <ion-col size="12">
+        <p class="no-reservation">There is no current reservations</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngFor="let data of reservation_data" size="6">
+      <ion-card (click)="GotoDetail(data)">
+        <ion-card-header>
+          <ion-avatar>
+            <img src="assets/imgs/profile-img.png">
+          </ion-avatar>
+        </ion-card-header>
+        <ion-card-subtitle>{{data.bookedby_username}}</ion-card-subtitle>
+        <ion-card-content>
+          <p><img src="assets/imgs/clock.png">{{data.reservation_date}}</p>
+          <p><img src="assets/imgs/mUsers.png">{{data.number_of_users}} persons</p>
+          <p><img src="assets/imgs/percent.png">{{data.discount_value}}% off behari kebab</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  
+</ion-content>
+

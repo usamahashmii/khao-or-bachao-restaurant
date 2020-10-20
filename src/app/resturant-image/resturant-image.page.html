@@ -1,0 +1,29 @@
+
+<ion-content  no-border fullscreen="true"  class="ion-padding background no-scroll">
+  <ion-list class="items-middle" class="ion-text-center">
+   <ion-row>
+      <ion-col style="padding-left: 0px;" class="ion-text-left" size="col-4">
+          <img src="assets/imgs/khaobchao.png" width="45%">
+          <img *ngIf="profileImage != null && profileImage != ''" class="profile-photo"  src="{{ profileImage }}" width="100%">
+      </ion-col>
+    </ion-row>
+   
+     <h3 class="main_heading ion-text-left">Resturant Setup</h3>
+    <p class="font-color ion-text-left">
+      Please Enter Your Resturant Details.
+    </p>
+    <ion-row *ngFor="let imageArray of imageArray">
+      <ion-col>
+          <img src="{{ imageArray }}" class="imge" >
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="imageLength">
+      <ion-col class="addImage" (click)="takeProfilePicture()" text-center>
+         <ion-icon ios="ios-add" md="md-add"   ></ion-icon>
+      </ion-col>
+    </ion-row>
+    
+    <ion-button class="button-login" color="danger" (click)="submitDetail()"shape="round">Continue</ion-button>
+  </ion-list>
+
+</ion-content>

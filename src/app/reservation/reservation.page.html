@@ -1,0 +1,98 @@
+<ion-header class="header_background">
+  <ion-toolbar class="header_background">
+    <ion-buttons slot="start">
+     <img style="height: 35px;" (click)="goToHome()" src="assets/imgs/menu.png">
+    </ion-buttons>
+    <ion-title>Reservations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+    </ion-col>
+  </ion-row>
+  <ion-toolbar class="cstomHeader" no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="upcoming" (ionSelect)="getupcomingReservations()">
+        Upcoming
+      </ion-segment-button>
+      <ion-segment-button value="previous" (ionSelect)="getupreviousReservations()">
+        Previous
+      </ion-segment-button>
+     
+    </ion-segment>
+  </ion-toolbar>
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'upcoming'" >
+        <ion-card *ngFor="let singleCategoryDat of upcomingreservationDetails">
+          <img src="{{ coverImage }}{{ singleCategoryDat.restaurant_image }}"/>
+          <div class="catsubtwo">
+            <p class="white">{{ singleCategoryDat.name }}</p>
+            <p class="white">{{ singleCategoryDat.location }} 
+              <span *ngFor="let distanceArr of distanceArr">
+                <span *ngIf="distanceArr.restaurantId == singleCategoryDat.restaurants_id">
+                  ( <span>
+                      <img class="home-loc-icon-class" src="assets/imgs/home-loc-icon.png">
+                    </span> {{ distanceArr.distance | roundoff }}Km away )
+                </span> 
+            </span>
+            </p>
+            <ionic4-star-rating #rating
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#b40404"
+            defaultColor = "#aaaaaa"
+            readonly = "true"
+            rating = "{{ singleCategoryDat.rating_count }}"
+            fontSize = "20px"
+            >
+            </ionic4-star-rating>
+            <p class="white">235 Reservations</p> 
+          </div>
+          <div class="catDate">
+            <p class="white">{{ singleCategoryDat.date_added }}</p> 
+            <!--<p class="white">5:00</p> -->
+          </div>
+        </ion-card>
+      
+
+        
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'previous'" >
+      <ion-card *ngFor="let singleCategoryDat of previousreservationDetails">
+          <img src="{{ coverImage }}{{ singleCategoryDat.restaurant_image }}"/>
+          <div class="catsubtwo">
+            <p class="white">{{ singleCategoryDat.name }}</p>
+            <p class="white">{{ singleCategoryDat.location }} 
+              <span *ngFor="let distanceArr of distanceArrPrev">
+                <span *ngIf="distanceArr.restaurantId == singleCategoryDat.restaurants_id">
+                  ( <span>
+                      <img class="home-loc-icon-class" src="assets/imgs/home-loc-icon.png">
+                    </span> {{ distanceArr.distance | roundoff }}Km away )
+                </span> 
+            </span>
+            </p>
+            <ionic4-star-rating #rating
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#b40404"
+            defaultColor = "#aaaaaa"
+            readonly = "true"
+            rating = "{{ singleCategoryDat.rating_count }}"
+            fontSize = "20px"
+            >
+            </ionic4-star-rating>
+            <p class="white">235 Reservations</p> 
+          </div>
+          <div class="catDate">
+            <p class="white">{{ singleCategoryDat.date_added }}</p> 
+             
+          </div>
+        </ion-card> 
+    </ion-list>
+  </div>
+  
+</ion-content>

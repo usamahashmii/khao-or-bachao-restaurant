@@ -1,0 +1,20 @@
+.tab_s{
+   box-shadow: 0px -1px 11px 2px #0000000f;
+}
+ion-tab-button img{
+    width:22px;
+}
+ion-tab-button ion-label{
+    color: #a0a0a0;
+}
+
+.tab-selected ion-label{
+    color:#b40404 !important;
+}
+.menu_img{
+top: 2px;
+position: relative;
+}
+ .tab_s.ios{
+    padding: 7px 0em;
+}

@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-row >
+    <ion-col  size="12" class="text-center h_title" (click)="Dismiss()">
+      <span>Please Select Time Period</span>
+      <ion-icon ios="ios-close" md="md-close" class="primary_color float-right icon_close"></ion-icon>
+    </ion-col>
+  </ion-row>
+  
+   
+  <ion-row>
+    <ion-col size="12" class="primary_color text-center">
+      <p (click)="showReservation('1 Month',0)" [class.highlight]="current" >Current Reservations</p>
+      <p (click)="showReservation('1 Month',1)"  [class.highlight]="lastMonth">Last Month</p>
+      <p (click)="showReservation('3 Month',2)" [class.highlight]="lasthreeMonth">Last 3 Month</p>
+      <p (click)="showReservation('6 Month',3)" [class.highlight]="lastsixMonth">Last 6 Month</p>
+      <p (click)="showReservation('1 year',4)" [class.highlight]="lastyear">Last Year</p>
+    </ion-col>
+  </ion-row>
+     
+    
+</ion-content>

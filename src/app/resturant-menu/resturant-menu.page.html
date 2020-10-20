@@ -1,0 +1,118 @@
+<ion-header class="header_background">
+  <ion-row class="bgh">
+    <ion-col size="4"  class="ion-text-left">
+     <span (click)="toggleMenu()">
+       <img src="assets/imgs/dots.svg" width="68px" > 
+     </span> 
+    </ion-col>
+    <ion-col size="4" class="ion-text-center mt">
+      {{restaurantName}}
+    </ion-col>
+    <ion-col size="4"  class="ion-text-right mt">
+      Menu
+    </ion-col>
+  </ion-row>
+</ion-header>
+<ion-content  no-border fullscreen="true"  class="ion-padding background no-scroll">
+  <!--<img (click)="toggleMenu()" *ngIf="!resturantSetup" src="assets/imgs/headerLogo.png">-->
+
+  <ion-list class="items-middle" class="ion-text-center">
+    <h3 class="main_heading ion-text-left">Menu Adding</h3>
+    <p class="font-color ion-text-left">
+      Please Enter Your Resturant Menu Details.
+    </p>
+  </ion-list>
+  <!--Array in form-->
+  <ion-list  class="items-middle" class="ion-text-center">
+   
+    <ion-row *ngIf="menuImg == null || menuImg == ''"  >
+      <ion-col class="addImage" (click)="takeProfilePicture()" text-center>
+         <ion-icon ios="ios-add" md="md-add"   ></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="menuImg != null && menuImg != ''"  >
+      <ion-col class="addImage " (click)="takeProfilePicture()" text-center>
+          <img src="{{ menuImg }}" class="img_height" >
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="addMenuform">
+
+     <ion-item class="itemBottom">
+       <ion-icon class="icon-color" class="ion-text-left" ios="ios-locate" md="md-locate" slot="start"></ion-icon>
+       <ion-label color="ligh-grey" position="floating">Categories</ion-label>
+     
+      <ion-select [(ngModel)]="categoryItemValue" formControlName="categoryItemValue" >
+        <ion-select-option *ngFor="let cat of category"value="{{cat.categories_id}}">
+          {{cat.name}}
+        </ion-select-option>
+      </ion-select>
+     </ion-item>
+    <div class="errorMessage" *ngIf="addMenuform.get('categoryItemValue').hasError('required') && addMenuform.get('categoryItemValue').touched">
+      * Please select a category
+    </div>
+     <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Item Name</ion-label>
+      <ion-input 
+       clearInput [(ngModel)]="inputItemValue" formControlName="inputItemValue"
+       ></ion-input>
+    </ion-item>
+    <div class="errorMessage" *ngIf="addMenuform.get('inputItemValue').hasError('required') && addMenuform.get('inputItemValue').touched">
+      * Please enter item name
+    </div>
+    <ion-item class="itemBottom">
+       <ion-icon class="icon-color" class="ion-text-left" ios="ios-disc" md="md-disc" slot="start"></ion-icon>
+        <ion-label color="ligh-grey" position="floating" >Meaurment</ion-label>
+        <ion-select [(ngModel)]="selectMeasurementValue" formControlName="selectMeasurementValue">
+        <ion-select-option value="plate">Plate</ion-select-option>
+        <ion-select-option value="dish">Dish</ion-select-option>
+      </ion-select>
+   </ion-item>
+   <div class="errorMessage" *ngIf="addMenuform.get('selectMeasurementValue').hasError('required') && addMenuform.get('selectMeasurementValue').touched">
+    * Please select a meaurment
+    </div>
+   <ion-item class="itemBottom">
+    <ion-icon class="icon-color" class="ion-text-left" ios="ios-disc" md="md-disc" slot="start"></ion-icon>
+    <ion-label color="ligh-grey" position="floating" >Quantity</ion-label>
+    <ion-select [(ngModel)]="selectQuantityValue" formControlName="selectQuantityValue">
+     <ion-select-option value="1">Plate 1</ion-select-option>
+     <ion-select-option value="2">Plate 2</ion-select-option>
+     <ion-select-option value="3">Plate 3</ion-select-option>
+   </ion-select>
+  </ion-item>
+  <div class="errorMessage" *ngIf="addMenuform.get('selectQuantityValue').hasError('required') && addMenuform.get('selectQuantityValue').touched">
+    * Please select a quantity
+  </div>
+  <ion-item class="itemBottom">
+    <ion-icon class="icon-color" class="ion-text-left" ios="ios-disc" md="md-disc" slot="start"></ion-icon>
+      <ion-label color="ligh-grey" position="floating" >Price Range</ion-label>
+      <ion-select [(ngModel)]="priceRange" formControlName="priceRange">
+      <ion-select-option value="$">$</ion-select-option>
+      <ion-select-option value="$$">$$</ion-select-option>
+      <ion-select-option value="$$$">$$$</ion-select-option>
+      <ion-select-option value="$$$$">$$$$</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <div class="errorMessage" *ngIf="addMenuform.get('priceRange').hasError('required') && addMenuform.get('priceRange').touched">
+    * Please select a Price Range
+  </div>
+  <ion-item class="itemBottom">
+    <ion-icon ios="ios-cash" class="ion-text-left" md="md-cash" slot="start"></ion-icon>
+    <ion-label color="ligh-grey" position="floating" >Price</ion-label>
+    <ion-input 
+    clearInput [(ngModel)]="inputPriceValue" formControlName="inputPriceValue"
+    ></ion-input>
+  </ion-item>
+  <div class="errorMessage" *ngIf="addMenuform.get('inputPriceValue').hasError('required') && addMenuform.get('inputPriceValue').touched">
+    * Please enter a price
+  </div>  
+
+<ion-row>
+  <ion-col size="12" text-center>
+    <ion-button (click)="submitItemData()" class="button-login" color="danger" shape="round" >Continue</ion-button>
+  </ion-col>
+</ion-row>
+</form>
+   </ion-list>
+  
+ 
+</ion-content>

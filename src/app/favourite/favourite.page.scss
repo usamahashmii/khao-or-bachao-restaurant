@@ -1,0 +1,70 @@
+.no-favourites{
+    color: #b40404;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20%;
+    font-weight: 550;
+}
+.loader-gif-row{
+    position: absolute;
+    margin-top: 80%;
+    z-index: 9;
+    text-align: center;
+  }
+  .loader-gif{
+    width: 60%;
+  }
+.catsubtwo{
+    position: absolute;
+    left: 9px;
+    top: 14px;
+    text-align: left;
+}
+.catDate{
+    position: absolute;
+    right: 9px;
+    top: 17px;
+    text-align: right; 
+}
+  .white{
+    color:#fff;
+    width: 80%;
+}
+.stars{
+  color: rgba(255, 255, 255, 0.48);
+}
+.red{
+  color:#b40404;
+}
+.hotelName{
+    font-size: 18px;
+}
+.heart{
+   font-size: 24px;
+}
+p{
+    margin: 4px 0px;
+}
+.starSize{
+    font-size: 20px;
+}
+.reviewItem{
+    position: relative;
+    top: -4px;
+    left: 2px;
+}
+.home-header-city{
+  color: #fff;
+  font-size: 13px;
+  margin-right: 3px;
+  text-transform: capitalize;
+}
+.home-header-home-loc{
+  width: 14px;
+  margin-right: 6px;
+}
+.home-header-location-search{
+  width: 14px;
+  margin-right: 6px;
+  margin-left: 10px;
+}

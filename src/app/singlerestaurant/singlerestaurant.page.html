@@ -1,0 +1,308 @@
+<!--<ion-header class="header_background">
+  <ion-toolbar class="header_background">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Single Resturant</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+<ion-content>
+  <img routerLink="/tabs/home" src="assets/imgs/menu.png" class="backArrow">
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-slides *ngFor="let restaurantDetail of restaurantDetail" pager>
+
+      <!--<ion-slide >
+        <img src="{{ restaurantImageUrl }}{{ restaurantDetail.restaurant_image }}"/>
+      </ion-slide>
+    -->
+      <ion-slide >
+        <img src="../assets/imgs/single-restaurant-img.png"/>
+      </ion-slide>
+    
+      <ion-slide >
+        <img src="../assets/imgs/single-restaurant-img.png"/>
+      </ion-slide>
+    
+    </ion-slides>
+    <img *ngIf="!favRestaurant" (click)="addToFavourite()" class="heart-size like" src="assets/imgs/white-heart.png" >
+    <img *ngIf="favRestaurant" class="heart-size like" src="assets/imgs/red-heart.png" >
+    <img class="heart-size share" src="assets/imgs/share.png" >
+  </ion-row>
+  <ion-row *ngFor="let restaurantDetail of restaurantDetail" class="singleRow">
+    <ion-col text-left size="8">
+      <h5 class="marginZero">{{ restaurantDetail.name }}</h5>
+      <p class="away">{{ restaurantDetail.location }} 
+        <span *ngFor="let distanceArr of distanceArr">
+          <span *ngIf="distanceArr.restaurantId == restaurantDetail.restaurants_id">
+            ( {{ distanceArr.distance | roundoff }}Km away )
+          </span>
+          
+      </span>
+      </p>
+      <p style="display: flex;margin-left: 10px;">
+        <ionic4-star-rating #rating
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#b40404"
+            defaultColor = "#b40404"
+            readonly = "true"
+            rating = "{{ restaurantDetail.rating_count }}"
+            fontSize = "20px"
+            ><!--(ratingChanged)="logRatingChange($event)"-->
+            </ionic4-star-rating>
+            <span class="starReview">{{ restaurantDetail.rating_sum }}  Reviews</span>
+          </p>
+    </ion-col>
+    <ion-col text-right size="5">
+      <!--<h1 class="dollar">$$</h1>-->
+      <!--<h6 class="reservations-count">302 Reservations</h6>-->
+      <!--<p class="grey">302 Reservation</p>-->
+    </ion-col>
+  </ion-row>
+  <ion-row class="bg_first">
+    <ion-col text-right size="6">
+      <ion-select placeholder="2 PERSONS" ok-text="Okay" cancel-text="Nah" [(ngModel)]="personCount">
+        <ion-select-option value="1">1 Person</ion-select-option>
+        <ion-select-option value="2">2 Person</ion-select-option>
+        <ion-select-option value="3">3 Person</ion-select-option>
+        <ion-select-option value="4">4 Person</ion-select-option>
+        <ion-select-option value="5">5 Person</ion-select-option>
+        <ion-select-option value="6">6 Person</ion-select-option>
+        <ion-select-option value="7">7 Person</ion-select-option>
+      </ion-select>
+      
+    </ion-col>
+    <ion-col text-left size="6">
+     <p *ngIf="date == '' || date == null" (click)="pickDate()" class="pick-date-p"><img class="pick-date-img" src="assets/imgs/pick-date.png"><span class="pick-date-span">Pick Date</span></p>
+     <p *ngIf="date != null && date != ''" (click)="pickDate()" class="pick-date-p"><img class="pick-date-img" src="assets/imgs/pick-date.png"><span class="pick-date-span-val">{{ date }}</span></p>
+    </ion-col>
+  </ion-row>
+  <ion-row padding>
+   <ion-col *ngFor="let discount of discounts" text-center size="2">
+      <div *ngIf="discount" class="sidetagone" (click)="selectDiscount(discount)">
+        <img src="../assets/imgs/bg_discount.png">
+        <div class="myOverlay">
+          <p class="bg_img_text white" style="margin-top: 1.9em;">-{{ discount.discount_rate }}%</p>
+          <p class="sidetagP2">{{ discount.start_time }}</p>
+        </div>
+      </div>
+    </ion-col>
+    
+  </ion-row>
+  <ion-row >
+    <ion-col style="margin-top: 3.5em;">
+ <ion-toolbar class="cstomHeader" no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="Menu" (ionSelect)="getAllMenu()">
+       Menu
+      </ion-segment-button>
+      <ion-segment-button value="About" (ionSelect)="getAbout()">
+        About
+      </ion-segment-button>
+      <ion-segment-button value="Reviews" (ionSelect)="getReviews()">
+        Reviews
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Menu'">
+      <ion-card >
+        <ion-card-header class="red">
+          Recommended
+        </ion-card-header>
+        <ion-card-content>
+          <p>The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.</p>
+        </ion-card-content>
+      </ion-card>
+      <ion-row class="align" text-left>
+        <ion-col class="red">MENU</ion-col>
+        <ion-col class="red">BEFORE</ion-col>
+        <ion-col class="red">AFTER</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let deal of deals" class="align" text-left>
+        <ion-col>{{ deal.deal_name }}</ion-col>
+        <ion-col>{{ deal.old_price }}</ion-col>
+        <ion-col>{{ deal.price }}</ion-col>
+      </ion-row>
+      
+      <ion-card >
+        <ion-card-header class="red">
+          Terms & Conditions
+        </ion-card-header>
+        <ion-card-content *ngFor="let restaurantDetail of restaurantDetail">
+          {{ restaurantDetail.terms_conditions }}
+        </ion-card-content>
+      </ion-card>
+      
+    </ion-list>
+    <ion-list *ngSwitchCase="'About'">
+      <ion-card class="aboutHeader">
+        <ion-card-header class="red" style="padding-top:15px;" text-left>
+          About
+        </ion-card-header>
+        <ion-card-content text-left>
+          <p>
+          {{ about }}  
+          </p>
+        </ion-card-content>
+        <ion-card-header class="red" text-left>
+          Atmosphere
+        </ion-card-header>
+        <ion-card-content text-left>
+          <p>
+            {{ atmosphere }}
+          </p>
+        </ion-card-content>
+        <ion-card-header class="red" text-left>
+          Sercices
+        </ion-card-header>
+        <ion-card-content text-left>
+          <p>{{ services }}</p>
+        </ion-card-content>
+        <ion-card-header class="red" text-left>
+          Payment Options
+        </ion-card-header>
+        <ion-card-content text-left>
+          <p>{{ payment_options }}</p>
+        </ion-card-content>
+      </ion-card>
+      <ion-row class="align" text-left>
+        <ion-col class="red">Operating Hours</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let openingHour of openingHours" class="align" >
+        <ion-col text-left>{{ openingHour.name }}</ion-col>
+        <ion-col text-center><span class="gbDate">{{ openingHour.opening_time }} AM- {{ openingHour.closing_time }} PM</span></ion-col>
+      </ion-row>
+      <!--<ion-row class="align" >
+        <ion-col text-left>Tuesday</ion-col>
+        <ion-col text-center><span class="gbDate">6:00 AM- 11:00 PM</span></ion-col>
+      </ion-row>
+      <ion-row class="align" >
+        <ion-col text-left>Wednesday</ion-col>
+        <ion-col text-center><span class="gbDate">6:00 AM- 11:00 PM</span></ion-col>
+      </ion-row>
+      <ion-row class="align" >
+        <ion-col text-left>Thursday</ion-col>
+        <ion-col text-center><span class="gbDate">6:00 AM- 11:00 PM</span></ion-col>
+      </ion-row>
+      <ion-row class="align" >
+        <ion-col text-left>Friday</ion-col>
+        <ion-col  text-center><span class="gbDate">6:00 AM- 11:00 PM</span></ion-col>
+      </ion-row>-->
+      <ion-card class="aboutHeader">
+        <ion-card-header class="red" style="padding-top:15px;" text-left>
+          Directions
+        </ion-card-header>
+        <ion-card-content text-left>
+          <p>The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.</p>
+          
+        </ion-card-content>
+        
+      </ion-card>
+      
+    </ion-list>
+    <ion-list *ngSwitchCase="'Reviews'">
+      <!--<p class="bigStars" text-center>
+        <ion-icon ios="ios-star" md="md-star" class="red"></ion-icon>
+        <ion-icon ios="ios-star" md="md-star" class="red"></ion-icon>
+        <ion-icon ios="ios-star" md="md-star" class="red"></ion-icon>
+        <ion-icon ios="ios-star" md="md-star" class="red"></ion-icon>
+        <ion-icon ios="ios-star" md="md-star"></ion-icon>
+      </p>-->
+      <p class="bigStars" text-center>
+        <ionic4-star-rating #rating
+          activeIcon = "ios-star"
+          defaultIcon = "ios-star-outline"
+          activeColor = "#b40404"
+          defaultColor = "#b40404"
+          readonly = "false"
+          class="bigStars"
+          (ratingChanged)="onRateChange($event)"
+          fontSize = "30px"
+          >
+        </ionic4-star-rating><!---->
+        <!--(ratingChanged)="logRatingChange($event)"-->
+      </p>
+      <p text-center>{{ reviewsCount }} Reviews</p>
+      <ion-row *ngFor="let review of reviews">
+        <ion-col size="6">
+          <p class="red revText" text-left >{{ review.user_name }}</p>
+        </ion-col>
+        <ion-col size="6">
+          <p class="revStars revText" text-right>
+            <ionic4-star-rating #rating *ngIf="review.rating_stars != '' && review.rating_stars != null"
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#b40404"
+            defaultColor = "#b40404"
+            readonly = "true"
+            rating = "{{ review.rating_stars }}"
+            fontSize = "20px"
+            ><!--(ratingChanged)="logRatingChange($event)"-->
+          </ionic4-star-rating><!---->
+          <ionic4-star-rating #rating *ngIf="review.rating_stars == '' || review.rating_stars == null"
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            activeColor = "#b40404"
+            defaultColor = "#b40404"
+            readonly = "true"
+            rating = "0"
+            fontSize = "20px"
+            ><!--(ratingChanged)="logRatingChange($event)"-->
+          </ionic4-star-rating><!---->
+          </p>
+        </ion-col>
+        <ion-col size="12">
+          <span>
+            {{ review.feedback }}
+          </span>
+        </ion-col>
+      </ion-row>
+      <!--<ion-row style="margin-top:5px;">
+        <ion-col size="6">
+          <p class="red revText" text-left >Locus Gunaiz</p>
+        </ion-col>
+        <ion-col size="6">
+          <p class="revStars revText" text-right>
+            <ionic4-star-rating #rating
+          activeIcon = "ios-star"
+          defaultIcon = "ios-star-outline"
+          activeColor = "#ff0000"
+          defaultColor = "#aaaaaa"
+          readonly = "true"
+          rating = "4"
+          fontSize = "20px"
+          >
+          </ionic4-star-rating>
+          </p>
+        </ion-col>
+        <ion-col size="12">
+          <span>You get what you pay for.Good Quality, Good Taste. Feels Comfortable when visiting</span>
+        </ion-col>
+      </ion-row>-->
+      <ion-row>
+        <ion-col>
+          <ion-textarea placeholder="Write Reviews" [(ngModel)]="reviewValue"  color="danger" rows="6" cols="20"></ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center size="12">
+          <ion-button  round color="primary" (click)="submitReview()" shape="round" >Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </div>
+</ion-col>
+
+</ion-row>
+<div #map id="map"></div>
+</ion-content>
+<ion-footer (click)="goToRestaurantDetails()" text-center padding>
+  <h1 class="white" style="margin:0px;">NEXT</h1>
+</ion-footer>

@@ -1,0 +1,47 @@
+<ion-header class="header_background">
+  <ion-toolbar class="header_background">
+    <ion-row size="12">
+      <ion-col size="1">
+        <img class="arrowLeft" routerLink="/tabs/offers" src="assets/imgs/backArrow.png">
+      </ion-col>
+      <ion-col size="10" text-center>
+        <ion-title>Choose Menu</ion-title>
+      </ion-col>
+    </ion-row>
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+     </ion-col>
+  </ion-row>
+ 
+ 
+  <ion-row>
+    <ion-col *ngFor="let data of items_data" size="6" (click)="openItemDiscount(data)" >
+      <ion-card>
+        <ion-card-header>
+           <img src="https://dev.khaoaurbachao.com/assets/admin/images/category_images/{{data.category_image}}"> 
+        </ion-card-header>
+        <ion-card-subtitle>{{data.item_name}}</ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col text-center>
+              {{data.quantity}} Pices Per {{data.measurement}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center>
+              {{data.price}} Per {{data.measurement}}
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    
+  </ion-row>
+  
+</ion-content>
+

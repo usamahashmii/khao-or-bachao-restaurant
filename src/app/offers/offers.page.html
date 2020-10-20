@@ -1,0 +1,644 @@
+<ion-header class="header_background">
+ 
+  <ion-row class="bgh">
+    <ion-col size="4"  class="ion-text-left">
+     <span (click)="toggleMenu()">
+       <img src="assets/imgs/dots.svg" width="68px" > 
+     </span> 
+    </ion-col>
+    <ion-col size="4" class="ion-text-center mt">
+     {{restaurantName}}
+    </ion-col>
+    <ion-col size="4"  class="ion-text-right mt2"  >
+      Discount Timing
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+     </ion-col>
+  </ion-row>
+  
+  <!-- Custom Refresher Content -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!--<ion-row *ngIf="itemOffers?.length == 0">
+    <ion-col size="12">
+        <p class="no-reservation">There is no current Offers</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col  *ngFor="let offers of itemOffers"  size="6">
+      <ion-card>
+        <ion-card-header>
+           <img src="https://dev.khaoaurbachao.com/assets/admin/images/category_images/{{offers.category_image}}"> 
+        </ion-card-header>
+        <ion-card-subtitle>{{offers.item_name}}</ion-card-subtitle>
+        <ion-card-content>
+          <p><img src="assets/imgs/percent.png">{{offers.discount_rate}}% off till {{offers.end_date}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    
+  </ion-row>
+  <ion-row>
+    <ion-col size="12" text-center>
+      <ion-button (click)="goToMenuTab()" class="button-login" color="danger" shape="round">Add</ion-button>
+    </ion-col>
+  </ion-row>-->
+ 
+  <ion-row *ngIf="monday?.length == 0 && tuesday?.length == 0 && wednesday?.length == 0 && thursday?.length == 0 && friday?.length == 0 && saturday?.length == 0 && sunday?.length == 0">
+    <ion-col size="12">
+        <p class="no-reservation">There is no current OnDays Discount</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col *ngIf="tuesdayStatus" size="12" class="onDays" text-left>
+        On Days
+    </ion-col>
+    <ion-col *ngIf="mondayStatus" size="12">
+     
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Monday 
+          <span class="fr" (click)="showDetailDay(monday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let monday of monday"  size="4">
+              <ion-row (click)="editDayDiscount(monday)">
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ monday.discount_rate }}% off</p> 
+                  <p>{{ monday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <!---->
+    <ion-col *ngIf="tuesdayStatus" size="12">
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Tuesday
+          <span class="fr" (click)="showDetailDay(tuesday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let tuesday of tuesday" size="4">
+              <ion-row (click)="editDayDiscount(tuesday)" >
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ tuesday.discount_rate }}% off</p> 
+                  <p>{{ tuesday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <!---->
+    <ion-col *ngIf="wednesdayStatus" size="12">
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Wednesday
+          <span class="fr" (click)="showDetailDay(wednesday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let wednesday of wednesday"  size="4">
+              <ion-row (click)="editDayDiscount(wednesday)">
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ wednesday.discount_rate }}% off</p> 
+                  <p>{{ wednesday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+     <!---->
+     <ion-col *ngIf="thursdayStatus" size="12">
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Thursday
+          <span class="fr" (click)="showDetailDay(thursday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let thursday of thursday"  size="4">
+              <ion-row (click)="editDayDiscount(thursday)" >
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ thursday.discount_rate }}% off</p> 
+                  <p>{{ thursday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <!---->
+    <ion-col *ngIf="fridayStatus" size="12">
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Friday
+          <span class="fr" (click)="showDetailDay(friday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let friday of friday"   size="4">
+              <ion-row (click)="editDayDiscount(friday)">
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ friday.discount_rate }}% off</p> 
+                  <p>{{ friday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <!---->
+    <ion-col *ngIf="saturdayStatus" size="12">
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Saturday
+          <span class="fr" (click)="showDetailDay(saturday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let saturday of saturday" size="4">
+              <ion-row  (click)="editDayDiscount(saturday)">
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ saturday.discount_rate }}% off</p> 
+                  <p>{{ saturday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <!---->
+    <ion-col *ngIf="SundayStatus" size="12">
+      <ion-card>
+        <ion-card-subtitle class="cardTitle">Sunday
+          <span class="fr" (click)="showDetailDay(sunday)"><ion-icon md="md-trash" ios="ios-trash"></ion-icon></span>
+        </ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col *ngFor="let sunday of sunday" size="4">
+              <ion-row (click)="editDayDiscount(sunday)" >
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>{{ sunday.discount_rate }}% off</p> 
+                  <p>{{ sunday.start_time }}</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <!--<ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>-->
+          </ion-row>
+          <!--<ion-row>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size="4">
+              <ion-row>
+                <ion-col size="3">
+                  <img src="assets/imgs/percent.png">
+                </ion-col>
+                <ion-col class="pad" size="9">
+                  <p>50% off</p> 
+                  <p>11:00 PM</p>
+                </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>-->
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12" text-center>
+      <ion-button class="button-login" color="danger" shape="round" (click)="goToDiscount()">Add</ion-button>
+    </ion-col>
+  </ion-row>
+ 
+ 
+</ion-content>
+

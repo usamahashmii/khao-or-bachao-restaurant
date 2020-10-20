@@ -1,0 +1,150 @@
+
+<ion-content  no-border fullscreen="true"  class="ion-padding background no-scroll">
+ 
+  <form [formGroup]="resturantForm">
+
+
+  <ion-list class="items-middle" class="ion-text-center">
+   <ion-row>
+      <ion-col style="padding-left: 0px;" class="ion-text-left" size="col-4">
+          <img src="assets/imgs/khaobchao.png" width="45%">
+      </ion-col>
+    </ion-row>
+   
+     <h3 class="main_heading ion-text-left">Resturant Setup</h3>
+    <p class="font-color ion-text-left">
+      Please Enter Your Resturant Details.
+    </p>
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating">Resturant Name</ion-label>
+      <ion-input 
+      [(ngModel)]="resturantName"
+      formControlName="resturantName" 
+      clearInput ></ion-input>
+      
+    </ion-item>
+    <div class="errorMessage" *ngIf="resturantForm.get('resturantName').hasError('required') && resturantForm.get('resturantName').touched">
+        * Please Enter your Resturant Name
+    </div>
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Branch</ion-label>
+      <ion-input 
+      [(ngModel)]="Branch"
+      formControlName="Branch" 
+      clearInput 
+      ></ion-input>
+    </ion-item>
+    <div class="errorMessage" *ngIf="resturantForm.get('Branch').hasError('required') && resturantForm.get('Branch').touched">
+        * Please Enter your Branch
+    </div>
+    
+
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Location</ion-label>
+      <ion-input 
+      [(ngModel)]="resturantLocation"
+      formControlName="resturantLocation" 
+      clearInput 
+      ></ion-input>
+    </ion-item>
+    <div class="errorMessage" *ngIf="resturantForm.get('resturantLocation').hasError('required') && resturantForm.get('resturantLocation').touched">
+      * Please Enter your Resturant Location
+    </div>
+
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Phone Number</ion-label>
+      <ion-input 
+      [(ngModel)]="resturantNumber"
+      formControlName="resturantNumber" 
+      clearInput 
+      ></ion-input>
+    </ion-item>
+    <div class="errorMessage" *ngIf="resturantForm.get('resturantNumber').hasError('required') && resturantForm.get('resturantNumber').touched">
+      * Please Enter your Phone Number
+    </div>
+    <ion-row>
+      <ion-col text-left>
+          <p class="openDays">Open Days</p>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="4" text-left>
+        <p>Monday</p>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+         <ion-datetime  displayFormat="h:mm a" [(ngModel)]="mondayDate1" formControlName="mondayDate1"  placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+          <ion-datetime  displayFormat="h:mm a" [(ngModel)]="mondayDate2"  formControlName="mondayDate2" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-left>
+        <p>Tuesday</p>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+         <ion-datetime  displayFormat="h:mm a" [(ngModel)]="tuesdayDate1"  formControlName="tuesdayDate1"  placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+          <ion-datetime  displayFormat="h:mm a" [(ngModel)]="tuesdayDate2"  formControlName="tuesdayDate2" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-left>
+        <p>Wednesday</p>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+         <ion-datetime  displayFormat="h:mm a" [(ngModel)]="wednesdayDate1"  formControlName="wednesdayDate1" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+          <ion-datetime  displayFormat="h:mm a" [(ngModel)]="wednesdayDate2"  formControlName="wednesdayDate2" placeholder="00:00 pm" ></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-left>
+        <p>Thursday</p>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+         <ion-datetime  displayFormat="h:mm a"  [(ngModel)]="thursdayDate1" formControlName="thursdayDate1" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+          <ion-datetime  displayFormat="h:mm a" [(ngModel)]="thursdayDate2" formControlName="thursdayDate2" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" text-left>
+        <p>Friday</p>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+         <ion-datetime  displayFormat="h:mm a" [(ngModel)]="fridayDate1"  formControlName="fridayDate1" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-item >
+          <ion-datetime  displayFormat="h:mm a"  [(ngModel)]="fridayDate2" formControlName="fridayDate2" placeholder="00:00 pm"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-button class="button-login" color="danger" shape="round" (click)="OpenPayment()">Continue</ion-button>
+  </ion-list>
+</form>
+</ion-content>

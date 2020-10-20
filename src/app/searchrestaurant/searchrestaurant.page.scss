@@ -1,0 +1,159 @@
+.search-icon-div{
+    width: 20px;
+    position: absolute;
+    top: 29px;
+    right: 42px;
+  }
+  .home-header-location-search{
+      width: 20px;
+  }
+  .search-input{
+    border: 1px solid #fff;
+    border-radius: 35px;
+    color: #fff;
+  }
+  .search-input-col{
+    padding: 20px;
+    padding-left: 18px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+  }
+  .sc-ion-input-md-h  ,.sc-ion-input-ios-h {
+    --padding-top: 10px;
+    --padding-end: 50px;
+    --padding-bottom: 10px;
+    --padding-start: 8px;
+}
+
+.catsubone p{
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #b40404;
+    background: rgba(0, 0, 0, 0.57);
+    padding: 0px 12px;
+    }
+    .catsubtwo{
+    position: absolute;
+    left: 9px;
+    bottom: 14px;
+    text-align: left;
+    }
+    .white{
+      color:#fff;
+      margin-bottom: 0;
+      margin-top:3px;
+      width: 83%;
+    }
+    .stars{
+    color: rgba(255, 255, 255, 0.48);
+    }
+    .red{
+    color:#b40404;
+    }
+    .sidetagone p{
+      font-size: 10px;
+      }
+    
+    .sidetagstwo p{
+    font-size: 10px;
+    }
+    
+    .sidetagsthree p{
+    font-size: 10px;
+    }
+    .cstomHeader{
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px #0000000f; 
+    }
+    .sc-ion-segment-md-h {
+      --background: none;
+      --background-checked: none;
+      --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.04);
+      --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);
+      --color: rgba(var(--ion-text-color-rgb,0,0,0),0.6);
+      --color-checked: #b40404;
+      --color-checked-disabled: var(--color-checked);
+      --indicator-color: transparent;
+    }
+    ion-segment-button{
+       font-size: 11px;
+       text-transform: inherit;
+    }
+    //rating stars
+    
+    ionic4-star-rating{
+      font-size: 20px;
+    }
+    
+    //new css of the new code 
+    .customSlider-new{
+      overflow-y: scroll;
+      height: 12.6em;
+      position: absolute;
+      right: -35px;
+      top: 0.5666em;
+      display: inline-grid;
+    }
+    .sidetagone-new{
+      width: 48%;
+      margin-top: 0.5em;
+      position: sticky;
+      touch-action: auto;
+    }
+    .sidetagone-new .myOverlay-new{
+      width: 100%;
+      height: auto;
+      position: absolute;
+      z-index: 99;
+      top: 11px;
+      right: 0em;
+      opacity: 1;
+      color: #fff;
+    }
+    .white-new{
+      color:#fff;
+    }
+    .txtOne-new{
+      margin-top: 8px;
+      font-weight: 700;
+      font-size: 10px;
+      margin-left: 10px;
+    }
+    .txtTwo-new{
+      margin: -5px 0px 0px 0px;
+      font-weight: 700;
+      font-size: 6px;
+      margin-left: 8px;
+    }
+    .catsubtwo{
+      position: absolute;
+      left: 9px;
+      bottom: 0px;
+      text-align: left;
+      font-size: 12px;
+    }
+    .catDate{
+      position: absolute;
+      right: 9px;
+      top: 17px;
+      text-align: right; 
+    }
+    .hotelName{
+      font-size: 18px;
+    }
+    .heart{
+     font-size: 24px;
+    }
+    .reviewItem{
+      position: relative;
+      top: -4px;
+      left: 2px;
+    }
+    .az{
+      height: 8.5em;
+    }
+    .alphabets{
+      color: #b40404;
+      font-weight: 700;
+      margin-left: 1em;
+    }

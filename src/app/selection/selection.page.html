@@ -1,0 +1,77 @@
+
+
+<ion-content no-border fullscreen="true"  class="ion-padding work no-scroll">
+  <ion-row>
+    <ion-col size="12" >
+      <img src="assets/imgs/whiteLogo.png" style="width:45%">
+   </ion-col>
+  </ion-row>
+  <ion-slides class="workSlider" pager #slides (ionSlideWillChange)="doCheck()">
+    <ion-slide>
+      <ion-row size="12" padding>
+        <ion-col size="12"  text-center >
+          <h1 class="white">How It Works?</h1>
+        </ion-col>
+      
+        <ion-col size="12"  text-center >
+           <img src="assets/imgs/forks.png" style="width:60%">
+        </ion-col>
+        <ion-col size="12"  text-center >
+        <p class="parah">
+          Register Your Resturant
+          and add menu items.
+          users will book tables and
+          you should be ready for them :)
+        </p>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row size="12" padding>
+        <ion-col size="12"  text-center >
+          <h1 class="white">How It Works?</h1>
+        </ion-col>
+      
+        <ion-col size="12"  text-center >
+           <img src="assets/imgs/barcode.png" style="width:60%">
+        </ion-col>
+        <ion-col size="12"  text-center >
+        <p class="parah">
+          Customer Will visit your 
+          Resturant and will scan a QR-Code
+          that we will provide you.
+          They scan it to mark their attandance.
+        </p>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row size="12" padding>
+        <ion-col size="12"  text-center >
+          <h1 class="white">How It Works?</h1>
+        </ion-col>
+      
+        <ion-col size="12"  text-center >
+           <img src="assets/imgs/faq.png" style="width:60%">
+        </ion-col>
+        <ion-col size="12"  text-center >
+        <p class="parah">
+          If you have any query and question. you can contact us anytime.
+        </p>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+  <ion-row size="12" padding>
+    <ion-col size="6"  text-left >
+      <ion-button  *ngIf="!disableSkipBtn" color="light" shape="round" class="opacity skip" routerLink="/resturant-setup" routerDirection="root">skip</ion-button>
+      <ion-button  *ngIf="!disableContactBtn" color="light" shape="round"  class="opacity">Contact</ion-button>
+    </ion-col>
+    
+    <ion-col size="6"  text-right >
+      <ion-button *ngIf="!disableNextBtn" color="light"  shape="round" class="skip" (click)="nextSlide()" >Next</ion-button>
+      <ion-button *ngIf="!disableSetupBtn" color="light"  shape="round" class="skip"  routerLink="/resturant-setup"  >Next</ion-button>
+    </ion-col>
+  </ion-row>
+ 
+</ion-content>

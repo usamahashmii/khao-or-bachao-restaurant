@@ -1,0 +1,257 @@
+.loader-gif-row{
+  position: absolute;
+  margin-top: 60%;
+  z-index: 9;
+  text-align: center;
+}
+.loader-gif{
+  width: 60%;
+}
+ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+  .header_title{
+    position: absolute;
+    top: 6%;
+    text-align: center;
+    width: 100%;
+    font-weight: 400;
+    color: #fff;
+  }
+  .header_subtitle{
+    position: absolute;
+    top: 11%;
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+    font-weight: 100;
+    color: #fff;
+  }
+  .stake{
+    border-bottom: 3px solid #fff;
+    padding-bottom: 1.1em;
+    font-size: 26px;
+  }
+  .header_subone{
+    position: absolute;
+    top: 17%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 100;
+    color: #fff;
+    width: 72%;
+    left: 15%;
+  }
+  .header_button{
+    position: absolute;
+    top: 22%;
+    left: 35%;
+  }
+  .sidetagone{
+    position: absolute;
+    right: 9px;
+    top: 1em;
+    width: 10%;
+  }
+  .sidetagtwo{
+    position: absolute;
+    right: 9px;
+    top: 5em;
+    width: 10%;
+  }
+  .sidetagthree{
+    position: absolute;
+    right: 9px;
+    top: 9em;
+    width: 10%;
+  }
+  .sidetagone .myOverlay{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 0.5;
+    color: #fff;
+  
+  }
+  .sidetagtwo .myOverlay{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 0.5;
+    color: #fff;
+  
+  }
+  .sidetagthree .myOverlay{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 0.5;
+    color: #fff;
+  
+  }
+  .txtOne{
+    margin-top: 2.6em;
+    font-weight: 700;
+    font-size: 10px;
+  }
+  .txtTwo{
+    margin: -5px 0px 0px 0px;
+    font-weight: 700;
+    font-size: 10px;
+  }
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+  
+.catsubone{
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    }
+    .catsubone p{
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #b40404;
+    background: rgba(0, 0, 0, 0.57);
+    padding: 0px 12px;
+    margin-top: 7px;
+    }
+    .catsubtwo{
+    position: absolute;
+    left: 9px;
+    bottom: 14px;
+    text-align: left;
+    font-size: 12px;
+    }
+    .catsubtwo p{
+        margin:6px 0px;
+        width: 85%;
+    }
+    .white{
+      color:#fff;
+    }
+    .stars{
+    color: rgba(255, 255, 255, 0.48);
+    }
+    .red{
+    color:#b40404;
+    }
+    .sidetagone p{
+      font-size: 10px;
+      }
+    
+    .sidetagstwo p{
+    font-size: 10px;
+    }
+    
+    .sidetagsthree p{
+    font-size: 10px;
+    }
+    .ion-color-light {
+        --ion-color-base: #fff !important;
+        --ion-color-base-rgb: var(--ion-color-light-rgb, 244, 245, 248) !important;
+        --ion-color-contrast: #ffffff !important;
+        --ion-color-contrast-rgb: var(--ion-color-light-contrast-rgb, 0, 0, 0) !important;
+        --ion-color-shade: #ffffff !important;
+        --ion-color-tint: var(--ion-color-light-tint, #f5f6f9) !important;
+    }
+    //new css of the new code 
+.customSlider-new{
+  overflow-y: scroll;
+  height: 11em;
+  position: absolute;
+  right: -35px;
+  top: 0.578em;
+  display: inline-grid;
+}
+.sidetagone-new{
+  width: 48%;
+  margin-top: 0.5em;
+  position: sticky;
+  touch-action: auto;
+}
+.sidetagone-new .myOverlay-new{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: 99;
+  top: 11px;
+  right: 0em;
+  opacity: 1;
+  color: #fff;
+}
+.white-new{
+  color:#fff;
+}
+.txtOne-new{
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 10px;
+}
+.txtTwo-new{
+  margin: -5px 0px 0px 0px;
+  font-weight: 700;
+  font-size: 6px;
+}
+
+.starReview{
+  color: #fff;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.backArrow{
+  position: absolute;
+  z-index: 999;
+  width: 20%;
+  top: 2%;
+  left: 3%;
+}
+.location-search-span{
+  position: absolute;
+  width: 20px;
+  right: 8px;
+  top: 18px;
+}
+.home-loc-icon-class{
+  width: 8px;
+  display: initial;
+}
+
+

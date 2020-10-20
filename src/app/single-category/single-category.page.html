@@ -1,0 +1,65 @@
+
+
+<ion-content>
+  <ion-row>
+    <img src="{{ CategoryImageUrl }}" style="height: 215px;"/>
+    <span>
+      <img  routerLink="/tabs/home" src="assets/imgs/menu.png" class="backArrow" >
+    </span>
+    <span class="location-search-span">
+      <img (click)="openRestaurantLocationPage()" class="home-header-location-search" src="assets/imgs/home-loc-icon.png">
+    </span>
+    
+    <div class="header_title"><span class="stake">{{ itemName }}</span></div><!---->
+    <div class="header_subtitle">{{ restaurantCount }} Restaurants</div><!---->
+    <div class="header_subone">Find Amazing Resturants and book from your phone on khao aur bchao</div>
+    <div class="header_button"><ion-button (click)="filtersPage()" color="light"  shape="round" fill="outline" style="text-transform: inherit;">  <img src="assets/imgs/filterIcon.png" style="width: 20px;">Filters</ion-button></div>
+  </ion-row> 
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+    </ion-col>
+  </ion-row>
+  <ion-card *ngFor="let singleCategoryDat of singleCategoryData" (click)="openRestaurantAsSingle(singleCategoryDat)">
+    <img src="{{ coverImage }}{{ singleCategoryDat.restaurant_image }}"/>
+    <!--<div class="catsubone" text-left><p>$$</p></div>-->
+    <div class="catsubtwo">
+      <p class="white" style="font-size: 15px;">{{ singleCategoryDat.name }}</p><!---->
+      <p class="white">{{ singleCategoryDat.location }} 
+        <span *ngFor="let distanceArr of distanceArr">
+          <span *ngIf="distanceArr.restaurantId == singleCategoryDat.restaurants_id">
+            ( <span>
+                <img class="home-loc-icon-class" src="assets/imgs/home-loc-icon.png">
+              </span> {{ distanceArr.distance | roundoff }}Km away )
+          </span>
+          
+      </span>
+      </p>
+      <p style="display: flex;">
+      <ionic4-star-rating #rating
+          activeIcon = "ios-star"
+          defaultIcon = "ios-star-outline"
+          activeColor = "#b40404"
+          defaultColor = "#b40404"
+          readonly = "true"
+          rating = "{{ singleCategoryDat.rating_count }}"
+          fontSize = "20px"
+          ><!--(ratingChanged)="logRatingChange($event)"-->
+          </ionic4-star-rating>
+          <span class="starReview">256 Reviews</span>
+        </p>
+    </div>
+    <ion-row class="customSlider-new">
+      <div *ngFor="let discount of discounts">
+        <div *ngIf="singleCategoryDat.restaurants_id == discount.restaurant_id" class="sidetagone-new">
+          <img src="assets/imgs/bg_discount.png" />
+          <div class="myOverlay-new">
+            <p class="white-new txtOne-new">-{{ discount.discount_rate }}%</p>
+            <p class="white-new txtTwo-new" >{{ discount.start_time }}</p>
+          </div>
+        </div>
+      </div>
+    </ion-row>
+  </ion-card>
+  
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-tabs (ionTabsDidChange)="tabChange($event)">
+
+  <ion-tab-bar slot="bottom" class="tab_s">
+    <ion-tab-button tab="home"> 
+      <img src="assets/imgs/home_active.png" *ngIf="selectTab==='home'">
+      <img src="assets/imgs/home_1.png" *ngIf="selectTab!=='home'">
+      <ion-label class="menu_img">Bookings</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="offers">
+      <img src="assets/imgs/offer_active.png" *ngIf="selectTab==='offers'">
+      <img src="assets/imgs/offers.png" *ngIf="selectTab!=='offers'">
+      <ion-label class="menu_img">Discount</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="menu">
+      <img src="assets/imgs/menu_active.png" *ngIf="selectTab==='menu'">
+      <img src="assets/imgs/menu_1.png" *ngIf="selectTab!=='menu'">
+      <ion-label class="menu_img" style="top:6px">Menu</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notifications">
+      <img src="assets/imgs/notify_active.png" *ngIf="selectTab==='notifications'">
+      <img src="assets/imgs/notify.png" *ngIf="selectTab!=='notifications'">
+      <ion-label class="menu_img">Notifications</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

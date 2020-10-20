@@ -1,0 +1,26 @@
+ion-slides{
+   --bullet-background-active:#fff;
+}
+.white{
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+.parah{
+    color: #fff;
+    padding: 0px 2em;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+
+ion-button.skip {
+    --padding-start: 40px;
+    --padding-end: 40px;
+  }
+  .ion-color-light{
+    --ion-color-contrast: #b40404 !important;
+  }
+  .opacity{  
+    opacity: 0.8;
+  }

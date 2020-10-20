@@ -1,0 +1,118 @@
+.loader-gif{
+    width: 60%;
+}
+.red{
+    color: #b40404;
+}
+.bgh{
+    background: #b40404 !important;
+    color: #fff;
+    padding: 0.3em 0.7em;
+}
+.mt{
+    margin-top: 10px;
+}
+.item-md.item-block .item-inner{
+    border-bottom: none;
+}
+.profile-photo {
+    border-radius: 50% !important;
+    overflow: hidden;
+    height: 65px;
+    width: 65px;
+}
+.ProfleName{
+    margin-bottom: 0px;
+    margin-top: 16px !important;
+    color: #b40404;
+}
+.ProfleCity{
+    margin: 0px;
+}
+ion-select{
+    padding-top: 0px !important;
+}
+.select-md .select-icon .select-icon-inner{
+    color:#b40404;
+}
+.language{
+    border: 1px solid #b40404;
+    border-radius: 40px;
+    margin-bottom: 0.9em;
+    
+}
+.radio-md .radio-checked {
+    border-color: #b20404;
+}
+.radio-md .radio-inner{
+    background-color: #b20404;
+}
+.item-radio-checked.item-md ion-label{
+    color: #b20404;
+}
+.item-input-has-focus .label-md[stacked], .input-has-focus .label-md[stacked], .item-input-has-focus .label-md[floating], .input-has-focus .label-md[floating] {
+    color: #b20404;
+}
+ion-toggle{
+    --background:#fff;
+    --background-checked:#b20404;
+    --handle-background:#fff;
+    --handle-background-checked:#fff;
+    
+  }
+  .toggle-inner{
+    --border: 1px solid rgba(180, 4, 4, 0.26);
+  }
+  .toggle-md.toggle-checked .toggle-icon {
+    background-color: #b40404;
+}
+.toggle-ios.toggle-checked .toggle-icon {
+    background-color: #b40404;
+}
+.toggle-md.toggle-checked .toggle-inner{
+    background-color: #ffffff;
+}
+.toggle-ios.toggle-checked .toggle-inner{
+    background-color: #ffffff;
+}
+.toggle-md{
+    height: 19px;
+}
+.toggle-md .toggle-inner{
+    top: -1px;
+}
+.text-right{
+    text-align:right;
+}
+
+.updatebtn.button-md ,.updatebtn.button-ios{
+    background-color: #b40404 !important;
+    box-shadow: none !important;
+}
+
+.ion-color-danger {
+    --ion-color-base: #b40404 !important;
+    --ion-color-base-rgb: var(--ion-color-danger-rgb, 240, 65, 65) !important;
+    --ion-color-contrast: var(--ion-color-danger-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-danger-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: #b40404 !important;
+    --ion-color-tint: #b40404 !important;
+}
+.text-center{
+    text-align: center;
+}
+
+ion-menu-button{
+    width: 75px;
+    margin-left: 9px;
+  }
+
+  .spanTitle{
+    float: right;
+    margin-right: 1em;
+    color: #fff !important;
+    font-size: 16px;
+    width: 106px;
+    text-align: right;
+    line-height: 20px;
+  }

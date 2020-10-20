@@ -1,0 +1,319 @@
+[_nghost-myc-c3] input[_ngcontent-myc-c3] {
+  font-size: 16px;
+  /* margin: 6px 0; */
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b40404;
+  background: none;
+  border-radius: 29px;
+}
+.loader-gif-row{
+    position: absolute;
+    margin-top: 80%;
+    z-index: 9;
+    text-align: center;
+  }
+  .loader-gif{
+    width: 60%;
+  }
+  .like{
+    position: absolute;
+    top: 14px;
+    right: 40px;
+    z-index: 99;
+    --background: #b40404;
+  }
+  .share{
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    z-index: 99;
+    --background: #b40404;
+  }
+ion-card {
+    position: relative;
+    text-align: center;
+  }
+  
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+  
+  ion-slides {
+    --bullet-border-radius: 0%;
+    --bullet-width: 16px;
+    --bullet-height: 5px;
+  }
+  
+  ion-slides {
+    --bullet-background: #000;
+    --bullet-background-active:  #b40404;
+  }
+  ion-title{
+    color:#fff;
+  }
+  ion-menu-button{
+    color:#fff;
+  }
+  .segment-ios .segment-button.segment-activated{
+  color: #fff !important;
+  background-color: #b40404;
+  }
+  .segment-ios .segment-button{
+  border-color: #b40404;
+  }
+  .catsubone{
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  }
+  .catsubone p{
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #b40404;
+  background: rgba(0, 0, 0, 0.57);
+  padding: 0px 12px;
+  }
+  .catsubtwo{
+  position: absolute;
+  left: 9px;
+  bottom: 14px;
+  text-align: left;
+  }
+  .white{
+    color:#fff;
+  }
+  .stars{
+  color: rgba(255, 255, 255, 0.48);
+  }
+  .red{
+  color:#b40404;
+  }
+  
+  .cstomHeader{
+  background-color: #fff;
+  }
+  .sc-ion-segment-md-h {
+    --background: none;
+    --background-checked: none;
+    --background-hover: rgba(var(--ion-color-primary-rgb,56,128,255),0.04);
+    --background-activated: rgba(var(--ion-color-primary-rgb,56,128,255),0.16);
+    --color: rgba(var(--ion-text-color-rgb,0,0,0),0.6);
+    --color-checked: #b40404;
+    --color-checked-disabled: var(--color-checked);
+    --indicator-color: transparent;
+  }
+  ion-segment-button{
+     font-size: 11px;
+  }
+  .ion-color-danger {
+    --ion-color-base: #b40404 !important;
+    --ion-color-base-rgb: var(--ion-color-danger-rgb, 240, 65, 65) !important;
+    --ion-color-contrast: var(--ion-color-danger-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-danger-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: #b40404 !important;
+    --ion-color-tint: #b40404 !important;
+    --border-width: 1px;
+    --font-size:15px;
+}
+.black{
+    color: #000;
+}
+.grey{
+    color: grey;
+    font-weight: 100;
+    font-size: 15px;
+}
+.dollar{
+    margin: 0px;
+    color: #b40404;
+    font-weight: bolder;
+}
+.away{
+    color:grey;
+    margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+.marginZero{
+    margin: 10px;
+    margin-bottom: 0;
+}
+.stars{
+    color: rgba(82, 81, 81, 0.48);
+    margin: 4px 0px;
+}
+.revStars{
+    color: rgba(82, 81, 81, 0.48); 
+}
+.stars ion-icon{
+    font-size: 20px;
+}
+.revText{
+    margin: 0px 0px;
+}
+.bg_first{
+    background: #f7f7f7;
+    padding: 9px 0px;
+    margin: 5px 0px;
+}
+.sidetagone{
+    position: absolute;
+    right: 27%;
+    top: 15px;
+    width: 70%;
+    height: 55px;
+}
+.sidetagone p{
+    font-size: 10px;
+    margin: 5px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.sidetagone .myOverlay{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 1;
+    color: #fff;
+  
+  }
+ 
+  .txtOne{
+    margin-top: 2.6em;
+    font-weight: 700;
+    font-size: 10px;
+  }
+  .txtTwo{
+    margin: -5px 0px 0px 0px;
+    font-weight: 700;
+    font-size: 10px;
+  }
+ion-footer{
+    background-color:#b40404;
+}
+.align{
+    margin-left: 6px;
+}
+.aboutHeader ion-card-header{
+   padding-top: 0px;
+}
+.gbDate{
+    background: #efeeee;
+    border-radius: 5px;
+    padding: 4px 7px;
+    font-size: 12px;
+}
+ion-segment{
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.bigStars ion-icon{
+    font-size: 30px;
+}
+ion-textarea{
+    border: 1px solid #b40404;
+    border-radius: 14px;
+}
+.ion-color-primary {
+    --ion-color-base: #b40404 !important;
+    --ion-color-base-rgb: var(--ion-color-primary-rgb, 56, 128, 255) !important;
+    --ion-color-contrast: var(--ion-color-primary-contrast, #fff) !important;
+    --ion-color-contrast-rgb: var(--ion-color-primary-contrast-rgb, 255, 255, 255) !important;
+    --ion-color-shade: #b40404 !important;
+    --ion-color-tint: #b40404 !important;
+}
+//maps scss
+#map {
+  width: 100%;
+  height: 40%;
+}
+
+ion-select{
+  border: 1px solid #b40404;
+  border-radius: 30px;
+  width: 80%;
+  color: #b40404;
+  font-weight: 500;
+  font-size: 13px;
+  float: right;
+  margin-right: 8px;
+  padding-right: 16px;
+  /* margin-top: 9px; */
+  padding-top: 14px;
+}
+input.li-dp-input.ng-untouched.ng-pristine.ng-valid{
+  font-size: 16px;
+  margin: 6px 0;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding: 12px;
+  background: rgba(218, 218, 218, 0.8196078431);
+  border: 1px solid #b40404;
+  border-radius: 26px;
+}
+.starReview{
+  color: #000;
+  margin-top: 1px;
+  margin-left: 5px;
+}
+.heart-size{
+width: 18px;
+}
+.backArrow{
+  position: absolute;
+  z-index: 999;
+  width: 20%;
+  top: 2%;
+  left: 3%;
+}
+
+.pick-date-img{
+  width: 12px;
+  margin-left: 13px;
+  margin-top: 5px;
+}
+.pick-date-p{
+  padding: 10px;
+  border: 1px solid #b40404;
+  border-radius: 30px;
+  color: #b40404;
+  margin: 0;
+  width: 80%;
+  font-size: 13px;
+  height: 45px;
+}
+.pick-date-span{
+  float: right;
+  margin-right: 16px;
+  margin-top: 4px;
+}
+.pick-date-span-val{
+  float: right;
+  margin-right: 12px;
+  margin-top: 2px;
+  font-size: 9px;
+}
+.reservations-count{
+  color: gray;
+  margin: 0;
+  font-size: 10px;
+}

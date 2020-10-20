@@ -1,0 +1,16 @@
+<svg id="Dots_icon_" data-name="Dots icon " xmlns="http://www.w3.org/2000/svg" width="11.438" height="55.188" viewBox="0 0 11.438 55.188">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M58,228.907a5.734,5.734,0,1,1-5.734,5.734A5.734,5.734,0,0,1,58,228.907Z" transform="translate(-52.281 -228.906)"/>
+  <circle id="Ellipse_1_copy" data-name="Ellipse 1 copy" class="cls-2" cx="5.719" cy="27.954" r="5.719"/>
+  <path id="Ellipse_1_copy_2" data-name="Ellipse 1 copy 2" class="cls-1" d="M58,272.626a5.734,5.734,0,1,1-5.734,5.733A5.733,5.733,0,0,1,58,272.626Z" transform="translate(-52.281 -228.906)"/>
+</svg>

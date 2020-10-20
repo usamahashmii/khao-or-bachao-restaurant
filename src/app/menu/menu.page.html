@@ -1,0 +1,65 @@
+<ion-header class="header_background">
+  
+  <ion-row class="bgh">
+    <ion-col size="4"  class="ion-text-left">
+     <span (click)="toggleMenu()">
+       <img src="assets/imgs/dots.svg" width="68px" > 
+     </span> 
+    </ion-col>
+    <ion-col size="4" class="ion-text-center mt">
+     {{restaurantName}}
+    </ion-col>
+    <ion-col size="4"  class="ion-text-right mt"  >
+      Current Menu
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+     </ion-col>
+  </ion-row>
+ 
+  <!-- Custom Refresher Content -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-row>
+    <ion-col *ngFor="let data of items_data;let i=index" size="6" class="item_{{i}}"  >
+      <ion-card (click)="itemEdit(data,i)" >
+        <ion-card-header>
+           <img src="{{data.item_image_url}}"> 
+        </ion-card-header>
+        <ion-card-subtitle>{{data.item_name}}</ion-card-subtitle>
+        <ion-card-content>
+          <ion-row>
+            <ion-col text-center>
+              {{data.quantity}} Pices Per {{data.measurement}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center>
+              {{data.price}} Per {{data.measurement}}
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    
+    <ion-col size="6"  text-center>
+      <ion-card class="addImage" routerLink="/resturant-menu"  >
+        <ion-icon ios="ios-add" md="md-add"   ></ion-icon>
+      </ion-card>
+    </ion-col>
+    
+  </ion-row>
+  
+</ion-content>
+

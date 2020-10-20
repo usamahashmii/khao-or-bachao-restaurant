@@ -1,0 +1,99 @@
+<ion-header class="header_background">
+  <ion-toolbar class="header_background">
+    <ion-row size="12">
+      <ion-col size="1">
+        <img class="arrowLeft" routerLink="/tabs/offers" src="assets/imgs/backArrow.png">
+      </ion-col>
+      <ion-col size="10" text-center>
+        <ion-title>On Days Discount</ion-title>
+      </ion-col>
+    </ion-row>
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+     </ion-col>
+  </ion-row>
+  <h4 class="discount_add">Adding Discount</h4>
+  <form [formGroup]="discountform">
+  <ion-item class="itemBottom">
+    <ion-icon class="icon-color" class="ion-text-left" ios="ios-disc" md="md-disc" slot="start"></ion-icon>
+     <ion-label color="ligh-grey" position="floating" >Choose Day</ion-label>
+     <ion-select  value="Days"  [(ngModel)]="Days" formControlName="Days" >
+     <ion-select-option value="Monday">Monday</ion-select-option>
+     <ion-select-option value="Tuesday">Tuesday</ion-select-option>
+     <ion-select-option value="Wednesday">Wednesday</ion-select-option>
+     <ion-select-option value="Thursday">Thursday</ion-select-option>
+     <ion-select-option value="Friday">Friday</ion-select-option>
+     <ion-select-option value="Saturday">Saturday</ion-select-option>
+     <ion-select-option value="Sunday">Sunday</ion-select-option>
+   </ion-select>
+</ion-item>
+<div class="errorMessage" *ngIf="discountform.get('Days').hasError('required') && discountform.get('Days').touched">
+  * Please select a day
+</div>
+<ion-item class="itemBottom">
+  <ion-label color="ligh-grey" position="floating" >Discount</ion-label>
+  <ion-input [(ngModel)]="Discount"  formControlName="Discount"
+   clearInput 
+   ></ion-input>
+</ion-item> 
+<div class="errorMessage" *ngIf="discountform.get('Discount').hasError('required') && discountform.get('Discount').touched">
+  * Please Enter Discount
+</div>
+<ion-row>
+  <ion-col size="4">
+    <ion-item class="itemBottom">
+    <ion-label color="ligh-grey" position="floating" >Hours</ion-label>
+    <ion-select  value="Hours"  [(ngModel)]="Hours" formControlName="Hours" >
+      <ion-select-option value="01">01</ion-select-option>
+      <ion-select-option value="02">02</ion-select-option>
+      <ion-select-option value="03">03</ion-select-option>
+      <ion-select-option value="04">04</ion-select-option>
+      <ion-select-option value="05">05</ion-select-option>
+      <ion-select-option value="06">06</ion-select-option>
+      <ion-select-option value="07">07</ion-select-option>
+      <ion-select-option value="08">08</ion-select-option>
+      <ion-select-option value="09">09</ion-select-option>
+      <ion-select-option value="10">10</ion-select-option>
+      <ion-select-option value="11">11</ion-select-option>
+      <ion-select-option value="12">12</ion-select-option>
+    </ion-select>
+  </ion-item>
+  </ion-col>
+  <ion-col size="4">
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Mins</ion-label>
+      <ion-select  value="Mins"  [(ngModel)]="Mins" formControlName="Mins" >
+        <ion-select-option value="00">00</ion-select-option>
+        <ion-select-option value="30">30</ion-select-option>
+        <ion-select-option value="60">60</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+  <ion-col size="4">
+    <ion-item class="itemBottom">
+      <ion-label color="ligh-grey" position="floating" >Secs</ion-label>
+      <ion-select  value="Secs"  [(ngModel)]="Secs" formControlName="Secs" >
+        <ion-select-option value="AM">AM</ion-select-option>
+        <ion-select-option value="PM">PM</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+</ion-row>
+<!--ion-item >
+  <ion-datetime  displayFormat="h:mm a"  [(ngModel)]="time"  formControlName="time" placeholder="00:00 pm"></ion-datetime>
+</ion-item>
+<div class="errorMessage" *ngIf="discountform.get('time').hasError('required') && discountform.get('time').touched">
+  * Please Enter time
+</div-->
+<ion-row>
+  <ion-col size="12" text-center>
+    <ion-button class="button-login" color="danger" shape="round" (click)="submitDiscount()">Add</ion-button>
+  </ion-col>
+</ion-row>
+</form>
+</ion-content> 

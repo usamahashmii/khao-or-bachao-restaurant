@@ -1,0 +1,48 @@
+<ion-header class="header_background">
+  <ion-row class="bgh">
+    <ion-col size="4"  class="ion-text-left">
+     <span (click)="toggleMenu()">
+       <img src="assets/imgs/dots.svg" width="68px" > 
+     </span> 
+    </ion-col>
+    <ion-col size="4" class="ion-text-center mt">
+      {{restaurantName}}
+    </ion-col>
+    <ion-col size="4"  class="ion-text-right mt">
+      Setting
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content padding>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+    </ion-col>
+  </ion-row>
+  
+  <ion-item>
+    <h3 class="red">Resturant Discount</h3>
+  </ion-item>
+ <ion-item>
+    <ion-label>Allow Discount</ion-label>
+    <ion-toggle [(ngModel)]="allowDiscount" ></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Per Time slot booking</ion-label>
+    <ion-input  [(ngModel)]="perTimeslotBookings" class="ion-text-right" placeholder="1"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Opening time</ion-label>
+    <ion-datetime  displayFormat="h:mm a"  [(ngModel)]="openingTime" class="ion-text-right" placeholder="00:00 pm"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Address</ion-label>
+    <ion-input  [(ngModel)]="address" class="ion-text-right" placeholder="UAE"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-button class="button-login" color="danger" shape="round" (click)="updatebtn()">Update</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

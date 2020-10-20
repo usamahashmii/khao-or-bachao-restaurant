@@ -1,0 +1,59 @@
+<ion-header class="header_background">
+  <ion-toolbar class="header_background">
+    <ion-buttons slot="start">
+      <img (click)="goBack()" style="width: 14px;margin-left: 14px;" src="assets/imgs/back-arrow.png">
+    </ion-buttons>
+  <ion-row>
+    <ion-col class="search-input-col">
+      <ion-input (ionChange)="searchChanged($event)" placeholder="Write Here" class="search-input"
+      ></ion-input>
+      <div class="search-icon-div">
+        <img class="home-header-location-search" src="assets/imgs/location-search.png">
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let getNewRestaurant of restaurantsArrayTopaz" (click)="openRestaurantAsSingle(getNewRestaurant)">
+    <img src="assets/imgs/menuone.png"/>
+    <!--<img src="{{ coverImageBaseUrl }}{{ getNewRestaurant.restaurant_image }}"/>-->
+    <!--<div class="catsubone" text-left><p>5$</p></div>-->
+    <div class="catsubtwo">
+      <p class="white" style="font-size: 15px;">{{ getNewRestaurant.name }}</p>
+      <p class="white">{{ getNewRestaurant.location }} 
+        <span *ngFor="let distanceArr of distanceArr">
+          <span *ngIf="distanceArr.restaurantId == getNewRestaurant.restaurants_id">
+            ( {{ distanceArr.distance | roundoff }}Km away )
+          </span>
+          
+      </span>
+      </p>
+      <p style="display: flex;margin-top: 4px;">
+        <ionic4-star-rating #rating
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "#b40404"
+        defaultColor = "#aaaaaa"
+        readonly = "true"
+        rating = "5"
+        fontSize = "20px"
+        ><!--(ratingChanged)="logRatingChange($event)"-->
+        </ionic4-star-rating>
+        <span class="starReview">256 Reviews</span>
+        </p>
+    </div>
+    <ion-row class="customSlider-new">
+      <div *ngFor="let discount of discounts">
+        <div *ngIf="getNewRestaurant.restaurants_id == discount.restaurant_id" class="sidetagone-new">
+          <img *ngIf="getNewRestaurant.restaurants_id == discount.restaurant_id" src="assets/imgs/bg_discount.png" />
+          <div *ngIf="getNewRestaurant.restaurants_id == discount.restaurant_id" class="myOverlay-new">
+            <p class="white-new txtOne-new">-{{ discount.discount_rate }}%</p>
+            <p class="white-new txtTwo-new" >{{ discount.start_time }}</p>
+          </div>
+        </div>
+      </div>
+    </ion-row>
+  </ion-card>
+</ion-content>

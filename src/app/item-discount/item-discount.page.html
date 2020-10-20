@@ -1,0 +1,37 @@
+<ion-header class="header_background">
+  <ion-toolbar class="header_background">
+    <ion-row size="12">
+      <ion-col size="1">
+        <img class="arrowLeft" routerLink="/tabs/offers" src="assets/imgs/backArrow.png">
+      </ion-col>
+      <ion-col size="10" text-center>
+        <ion-title>{{item_name}}</ion-title>
+      </ion-col>
+    </ion-row>
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-row *ngIf="loaderShow" class="loader-gif-row">
+    <ion-col>
+      <img class="loader-gif" src="assets/imgs/loader.gif">
+     </ion-col>
+  </ion-row>
+  <h4 class="discount_add">Adding Discount</h4>
+  <ion-item class="itemBottom" >
+    <ion-label color="ligh-grey" position="floating" >Select Date</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="item_date" placeholder="Select Date"></ion-datetime>
+  </ion-item>
+  <ion-item class="itemBottom">
+    <ion-label color="ligh-grey" position="floating" >Discount</ion-label>
+    <ion-input [(ngModel)]="item_discount"
+    clearInput 
+    ></ion-input>
+  </ion-item>
+
+  <ion-row>
+    <ion-col size="12" text-center>
+      <ion-button class="button-login" color="danger" shape="round" (click)="submitData()">Add</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content> 
